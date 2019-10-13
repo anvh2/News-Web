@@ -1,0 +1,603 @@
+<style>
+    table.dataTable thead .sorting:after,
+    table.dataTable thead .sorting:before,
+    table.dataTable thead .sorting_asc:after,
+    table.dataTable thead .sorting_asc:before,
+    table.dataTable thead .sorting_asc_disabled:after,
+    table.dataTable thead .sorting_asc_disabled:before,
+    table.dataTable thead .sorting_desc:after,
+    table.dataTable thead .sorting_desc:before,
+    table.dataTable thead .sorting_desc_disabled:after,
+    table.dataTable thead .sorting_desc_disabled:before {
+        bottom: .5em;
+    }
+</style>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Danh sách tin đã viết</h4>
+                        <p class="card-category">News List</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="news-table" class="table dt-responsive " cellspacing="0"
+                                   width="100%">
+                                <thead class="thead">
+                                <tr>
+                                    <th class="th-sm">NID
+                                    </th>
+                                    <th class="th-sm">Tiêu đề
+                                    </th>
+                                    <th class="th-sm">Danh mục
+                                    </th>
+                                    <th class="th-sm">Hình đại diện
+                                    </th>
+                                    <th class="th-sm">Tác giả
+                                    </th>
+                                    <th class="th-sm">Ngày tạo
+                                    </th>
+                                    <th class="th-sm">Ngày đăng
+                                    </th>
+                                    <th class="th-sm">Trạng thái
+                                    </th>
+                                    <th class="th-sm">Hành động
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% newsList.forEach(function (news) { %>
+                                <tr>
+                                    <td><%- news.nid %></td>
+                                    <td> <%- news.title %></td>
+                                    <td><%- news.image %></td>
+                                    <td><%- news.category %></td>
+                                    <td><%- news.author %></td>
+                                    <td><%- news.created_date %></td>
+                                    <td><%- news.published_date %></td>
+                                    <% if (news.status === 'published') { %>
+                                    <td><span style="background: lightgreen"><%- news.status %></span></td>
+                                    <td class="td-actions text-left"><a href="/news/<%-news.nid%>">
+                                        <button type="button" rel="tooltip" class="btn btn-info btn-view">
+                                            <i class="material-icons">person</i>
+                                            <span>
+                                    Xem
+                                    </span>
+                                        </button>
+                                    </a>
+                                    </td>
+                                    <% } else if (news.status === 'draft') { %>
+                                    <td><span style="background: lightgray"><%- news.status %></span></td>
+                                    <td class="td-actions text-left">
+                                        <a href="#edit-news-form">
+                                            <button type="button" rel="tooltip" class="btn btn-warning btn-edit">
+                                                <i class="material-icons">edit</i><span>
+                                    Chỉnh sửa
+                                    </span>
+                                            </button>
+                                        </a>
+                                    </td>
+                                    <% } else if (news.status === 'rejected') { %>
+                                    <td><span style="background: red"><%- news.status %></span></td>
+                                    <td class="td-actions text-left">
+                                        <a href="#edit-news-form">
+                                            <button type="button" rel="tooltip" class="btn btn-warning btn-edit">
+                                                <i class="material-icons">edit</i><span>
+                                    Chỉnh sửa
+                                    </span>
+                                            </button>
+                                        </a>
+                                    </td>
+                                    <% } else if (news.status === 'pending') { %>
+                                    <td><span style="background: yellow"><%- news.status %></span></td>
+                                    <td class="td-actions text-left"><a href="/news/<%-news.nid%>">
+                                        <button type="button" rel="tooltip" class="btn btn-info btn-view">
+                                            <i class="material-icons">person</i>
+                                            <span>
+                                    Xem
+                                    </span>
+                                        </button>
+                                    </a></td>
+                                    <% } %>
+                                </tr>
+                                <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title ">Danh sách tin đã xuất bảng</h4>
+                        <p class="card-category">CV List</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="available-news-table" class="table dt-responsive " cellspacing="0"
+                                   width="100%">
+                                <thead class="thead">
+                                <tr>
+                                    <th class="th-sm">NID
+                                    </th>
+                                    <th class="th-sm">Tiêu đề
+                                    </th>
+                                    <th class="th-sm">Danh mục
+                                    </th>
+                                    <th class="th-sm">Ngày đăng
+                                    </th>
+                                    <th class="th-sm">Lượt xem
+                                    </th>
+                                    <th class="th-sm">Hành động
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% newsList.forEach(function (news) { %>
+                                <% if (news.status === 'published') { %>
+                                <tr>
+                                    <td><%- news.nid %></td>
+                                    i
+                                    <td><%- news.title %></td>
+                                    <td><%- news.category %></td>
+                                    <td><%- news.published_date %></td>
+                                    <td><%- news.views %></td>
+                                    <td class="td-actions text-left">
+                                        <a href="/news/<%-news.nid%>">
+                                            <button type="button" rel="tooltip" class="btn btn-info btn-view">
+                                                <i class="material-icons">person</i>
+                                                <span>
+                                    Xem
+                                    </span>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }}) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title ">Danh sách tin đang chờ duyệt</h4>
+                        <p class="card-category">CV List</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="pending-news-table" class="table dt-responsive " cellspacing="0"
+                                   width="100%">
+                                <thead class="thead">
+                                <tr>
+                                    <th class="th-sm">NID
+                                    </th>
+                                    <th class="th-sm">Tiêu đề
+                                    </th>
+                                    <th class="th-sm">Danh mục
+                                    </th>
+                                    <th class="th-sm">Ngày viết
+                                    </th>
+                                    <th class="th-sm">Hành động
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% newsList.forEach(function (news) { %>
+                                <% if (news.status === 'pending') { %>
+                                <tr>
+                                    <td><%- news.nid %></td>
+                                    <td><%- news.title %></td>
+                                    <td><%- news.category %></td>
+                                    <td><%- news.created_date %></td>
+                                    <td class="td-actions text-left">
+                                        <a href="/news/<%-news.nid%>">
+                                            <button type="button" rel="tooltip" class="btn btn-info btn-view">
+                                                <i class="material-icons">person</i>
+                                                <span>
+                                    Xem
+                                    </span>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }}) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Danh sách tin bị từ chối</h4>
+                        <p class="card-category">CV List</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="rejected-news-table" class="table dt-responsive " cellspacing="0"
+                                   width="100%">
+                                <thead class="thead">
+                                <tr>
+                                    <th class="th-sm">NID
+                                    </th>
+                                    <th class="th-sm">Tiêu đề
+                                    </th>
+                                    <th class="th-sm">Danh mục
+                                    </th>
+                                    <th class="th-sm">Ngày viết
+                                    </th>
+                                    <th class="th-sm">Hành động
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% newsList.forEach(function (news) { %>
+                                <% if (news.status === 'rejected') { %>
+                                <tr>
+                                    <td><%- news.nid %></td>
+                                    <td><%- news.title %></td>
+                                    <td><%- news.category %></td>
+                                    <td><%- news.created_date %></td>
+                                    <td class="td-actions text-left">
+                                        <a href="#edit-news-form">
+                                            <button type="button" rel="tooltip" class="btn btn-warning btn-edit">
+                                                <i class="material-icons">edit</i><span>
+                                    Chỉnh sửa
+                                    </span>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }}) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-rose">
+                        <h4 class="card-title ">Danh sách tin nháp</h4>
+                        <p class="card-category">CV List</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="draft-news-table" class="table dt-responsive " cellspacing="0"
+                                   width="100%">
+                                <thead class="thead">
+                                <tr>
+                                    <th class="th-sm">NID
+                                    </th>
+                                    <th class="th-sm">Tiêu đề
+                                    </th>
+                                    <th class="th-sm">Danh mục
+                                    </th>
+                                    <th class="th-sm">Ngày viết
+                                    </th>
+                                    <th class="th-sm">Hành động
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% newsList.forEach(function (news) { %>
+                                <% if (news.status === 'draft') { %>
+                                <tr>
+                                    <td><%- news.nid %></td>
+                                    <td><%- news.title %></td>
+                                    <td><%- news.category %></td>
+                                    <td><%- news.created_date %></td>
+                                    <td class="td-actions text-left">
+                                        <a href="#edit-news-form">
+                                            <button type="button" rel="tooltip" class="btn btn-warning btn-edit">
+                                                <i class="material-icons">edit</i><span>
+                                    Chỉnh sửa
+                                    </span>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }}) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success" id="edit-form-header">
+                        <h4 class="card-title" id="edit-form-title">Thêm tin mới</h4>
+                        <p class="card-category">Add news</p>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" id="edit-news-form" action="/dashboard/writer/my-news/edit">
+                            <h4>Nội dung tin tức</h4>
+                            <div class="row d-none">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="uid" class="bmd-label-floating"></label>
+                                        <input id="uid" type="text" name="uid"
+                                               class="form-control"
+                                               value=""></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="title" class="bmd-label-floating">Tiêu đề</label>
+                                        <input id="title" type="text" name="title"
+                                               class="form-control"
+                                               value=""></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="abstract" class="bmd-label-floating">Mô tả</label>
+                                        <input id="abstract" name="abstract"
+                                               class="form-control"></div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="form-group text-center">
+                                        <label for="image-review">Hình hiện tại</label>
+                                        <img class="avatar d-block m-auto" id="image-review"
+                                             src='/img/new_logo.png'>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group text-center">
+                                        <label for="image-input">Thay đổi hình đại diện</label>
+                                        <input class="avatar" id="image-input" name="image-input" type="file">
+                                        <div id="avatar-errors-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="category">Danh mục</label>
+                                        <select name="category" class="form-control" id="category">
+                                            <% lcCategories.forEach(function(cate){ %>
+                                            <option value="<%- cate.cid %>"> <%- cate.name %></option>
+                                            <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="tags">Từ khóa cho bài viết hiện tại</label>
+                                        <textarea id="tags" type="text" name="tags"
+                                                  class="form-control"
+                                                  placeholder="Thêm từ khóa cách nhau dấu phẩy. VD: 'MU , Chelsea'"
+                                                  rows="3"></textarea>
+                                        <input id="image" type="text" name="image"
+                                               class="d-none"
+                                               value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="content">Nội dung</label>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="content"
+                                                      name="content" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input id="btn-add" type="submit" value="Đăng" name="add_news"
+                                   class="btn btn-success pull-right ">
+                            <button id="btn-update-close"
+                                    class="btn btn-outline-light pull-right d-none disabled"><i
+                                    class="fa fa-times-circle"></i></button>
+                            <input id="btn-delete" type="submit" name="delete_news" value="Xóa"
+                                   class="btn btn-outline-danger pull-right d-none disabled">
+                            <input id="btn-update" type="submit" name="update_news" value="Cập nhật"
+                                   class="btn btn-success pull-right d-none disabled">
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js"></script>
+<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=ezd73nxbzc7bu6e86g2l82jbbffke0mwevwrnyvc5q8h89j6"></script>
+<script>
+    tinymce.init({
+        selector: '#content',
+        themes: "modern",
+        height: 500,
+        menubar: false,
+        plugins: 'paste image link autolink lists table media wordcount fullscreen',
+        toolbar: [
+            'styleselect',
+            'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
+            'forecolor backcolor',
+            'table link image media',
+            'fullscreen'
+        ],
+    });
+
+    $(document).ready(function () {
+        $("#image-input").fileinput({
+            theme: 'fa',
+            dropZoneEnabled: false,
+            uploadUrl: '/upload-avatar',
+            uploadAsync: false,
+            overwriteInitial: true,
+            maxFileSize: 5000,
+            showClose: false,
+            showCaption: false,
+            removeTitle: 'Cancel or reset changes',
+            elErrorContainer: '#avatar-errors-1',
+            msgErrorClass: 'alert alert-block alert-danger',
+            defaultPreviewContent: '<img class="avatar" src="/img/new_logo.png" alt="Your Avatar">',
+            layoutTemplates: {main2: '{preview} ' + ' {browse}'},
+            allowedFileExtensions: ["jpg", "png", "gif"]
+        });
+
+        $.prototype.fileinput.Constructor.prototype["setUploadUrl"] = function (url) {
+            this.uploadUrl = url;
+        };
+
+        setAddForm();
+
+        $('#news-table').DataTable({
+            responsive: true,
+            "order": [[3, "desc"]]
+        });
+        $('.dataTables_length').addClass('bs-select');
+        $('#news-table_length').addClass("d-inline-block");
+        $('#news-table_filter').addClass("float-right");
+        $('#news-table_info').addClass("d-block w-100");
+        $('#news-table_paginate').addClass("text-center");
+        $('#news-table_paginate a').addClass("btn btn-primary");
+
+        $('.btn-edit').click(function () {
+            var nid = parseInt($(this).parent().parent().parent().children(":first").text());
+            getEditableNews(nid, function (newsList) {
+                setEditForm(newsList)
+            });
+        });
+        $("#btn-update-close").click(function () {
+            setAddForm();
+        })
+
+        $('#edit-news-form').validate({
+            rules: {
+                title: {
+                    required: true
+                },
+                abstract: {
+                    required: true
+                },
+                category: {
+                    required: true
+                },
+                content: {
+                    required: true
+                },
+            },
+            messages: {
+                title: {
+                    required: 'Title is required.',
+                },
+                abstract: {
+                    required: 'Abstract is required',
+                },
+                category: {
+                    required: 'Category is required',
+                },
+                content: {
+                    required: 'Content is required',
+                },
+            },
+            errorElement: 'small',
+            errorClass: 'help-block text-warning',
+            highlight: function (e) {
+                $(e).removeClass('is-valid').addClass('is-invalid');
+            },
+            unhighlight: function (e) {
+                $(e).removeClass('is-invalid').addClass('is-valid');
+            }
+        });
+    });
+
+    function getEditableNews(nid, callback) {
+        var dataString = 'loadNews=1&nid=' + nid;
+        $.ajax({
+            type: "post",
+            url: "/demoUI/dashboard/writer/my-news/edit",
+            data: dataString,
+            cache: false,
+            success: function f(newsList, tags) {
+                callback(newsList, tags);
+            }
+        });
+    }
+
+    function setEditForm(newsList, tags) {
+        var news = newsList[0];
+        var timestamp = Date.now().toString();
+        $('#edit-form-title').text("Sửa tin");
+        $('#edit-form-header').removeClass("card-header-success")
+        $('#edit-form-header').addClass("card-header-warning")
+        $("#btn-update").removeClass("d-none disabled");
+        $("#btn-delete").removeClass("d-none disabled");
+        $("#btn-update-close").removeClass("d-none disabled");
+        $("#btn-add").addClass("d-none disabled");
+
+
+        $('#nid').val(news.nid);
+        $('#title').val(news.title);
+        $('#category').val(news.cid);
+        $('#abstract').val(news.abstract);
+        $('#image').val(news.image);
+
+        var tagString = '';
+
+        tags.forEach(function (tag) {
+            tagString += tag + ' , ';
+        });
+
+        $('#tags').val(tagString);
+
+
+        if ($('#image').val() === "" || $('#image').val() === null) {
+            $('#image').val("/images/avatar/" + timestamp + ".png");
+            $('#image-input').fileinput("setUploadUrl", '/upload-news-image/' + timestamp);
+            $('#image-review').attr('src', "/img/new_logo.png");
+        }
+        else {
+            $('#image-input').fileinput("setUploadUrl", '/upload-news-image/' + news.nid);
+            $('#image-review').attr('src', news.image.replace("'", '').replace("'", ''));
+        }
+        var editor = tinymce.get('content');
+        editor.setContent(news.content);
+
+    }
+
+    function setAddForm() {
+        var timestamp = Date.now().toString();
+        $('#edit-form-title').text("Thêm tin mới");
+        $("#btn-add").removeClass("d-none disabled");
+        $("#btn-delete").addClass("d-none disabled");
+        $("#btn-update").addClass("d-none disabled");
+        $("#btn-update-close").addClass("d-none disabled");
+        $('#edit-form-header').addClass("card-header-success")
+        $('#edit-form-header').removeClass("card-header-warning")
+
+
+        $('#nid').val("");
+        $('#title').val("");
+        $('#category').val("");
+        $('#abstract').val("");
+        $('#tags').val('');
+        $('#image').val("/images/avatar/" + timestamp + ".png");
+        $('#image-input').fileinput("setUploadUrl", '/upload-news-image/' + timestamp);
+        $('#image-review').attr('src', "/img/new_logo.png");
+        var editor = tinymce.get('content');
+        editor.setContent("");
+    }
+</script>

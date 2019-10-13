@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Express App</title>
+    <link rel="stylesheet" href="/css/core/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/core/classy-nav.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    <link rel="stylesheet" href="/css/core/themify-icons.css">
+    <link rel="stylesheet" href="/css/core/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/core/animate.css">
+    <link rel="stylesheet" href="/css/core/magnific-popup.css">
+    <link rel="stylesheet" href="/css/core/style.css">
+    <link rel="stylesheet" href="/css/my-style.css">
+
+    <%- style %>
+</head>
+
+<body>
+<div class="preloader d-flex align-items-center justify-content-center">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+
+<%- include('../elements/header'); %>
+
+<%- body %>
+
+<%- include('../elements/footer'); %>
+
+
+</body>
+
+<script src="/js/core/jquery/jquery-2.2.4.min.js"></script>
+<script src="/js/core/bootstrap/bootstrap.min.js"></script>
+<script src="/js/core/bootstrap/popper.min.js"></script>
+<script src="/js/core/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="/js/core/active.js"></script>
+<%- script %>
+
+</html>

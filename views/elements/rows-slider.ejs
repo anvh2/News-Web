@@ -1,0 +1,10 @@
+<div class="single--slide">
+    <% for (var i = 0; i< newsList.length/2; i++) { %>
+    <%- include('./rows-slider-item', {news: newsList[i]}) %>
+    <%}%>
+</div>
+<div class="single--slide">
+    <% for (var i = Math.floor(newsList.length/2); i < newsList.length; i++) { %>
+        <%- include('./rows-slider-item', {news: newsList[i]}) %>
+    <%}%>
+</div>

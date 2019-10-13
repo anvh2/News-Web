@@ -1,0 +1,15 @@
+<%if((isAuthenticated && news.type === 'premium') || news.type === 'normal') {%>
+<div class="single-blog-post d-flex style-3">
+    <div class="post-thumbnail">
+        <img src="<%-news.image%>" alt="">
+    </div>
+    <div class="post-content">
+        <a href="/news/<%-news.nid %>" class="post-title"><%-news.title%></a>
+        <div class="post-meta d-flex">
+            <a href="/category/<%-news.category%>"> <%-news.name%></a>
+            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%-news.views%></a>
+            <a href="#"><i class="fa fa-comments" aria-hidden="true"></i> <%-news.total_cmt%></a>
+        </div>
+    </div>
+</div>
+<%}%>

@@ -1,0 +1,17 @@
+<div class="trending-now-posts mb-30">
+    <!-- Section Title -->
+    <div class="section-heading">
+        <h5><%-title%></h5>
+    </div>
+    <div class="trending-post-slides owl-carousel">
+        <!--<- include('./category-slider-item') %>-->
+        <!--<- include('./news-recent-slider-item') %>-->
+        <% newsList.forEach(news => { %>
+            <%if(type === 1){%>
+                <%-include('./news-recent-slider-item', {news: news})%>
+            <%} else {%>
+                <%-include('./category-slider-item', {category: news})%>
+            <%}%>
+        <%})%>
+    </div>
+</div>

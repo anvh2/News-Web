@@ -1,0 +1,71 @@
+<!-- ##### Hero Area Start ##### -->
+<%- include('./elements/home-slider',{trendingNews:trendingNews}) %>
+<!-- ##### Hero Area End ##### -->
+
+<!-- ##### Mag Posts Area Start ##### -->
+<section class="mag-posts-area d-flex flex-wrap">
+    <!-- >>>>>>>>>>>>>>>>>>>>
+     Post Left Sidebar Area
+    <<<<<<<<<<<<<<<<<<<<< -->
+    <div class="post-sidebar-area left-sidebar mt-30 mb-30 bg-white box-shadow">
+        <!-- Sidebar Widget -->
+
+        <%- include('./elements/sidebar-widget', {mostPopularNews: mostPopularNews})%>
+        
+        <!-- Sidebar Widget -->
+    </div>
+
+    <!-- >>>>>>>>>>>>>>>>>>>>
+         Main Posts Area
+    <<<<<<<<<<<<<<<<<<<<< -->
+    <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
+        <!-- Trending Now Posts Area -->
+        <%- include('./elements/normal-slider', {trendingNews: trendingNews}) %>
+
+
+        <!-- News by category area -->
+        <div class="news-bycate-area mb-30">
+            <!-- Section Title -->
+            <!--<- include('./elements/home-rows-slider') %>-->
+
+        </div>
+
+        <!-- Category Area -->
+        <div class="category-area mb-30">
+            <!--<- include('./elements/normal-slider') %>-->
+        </div>
+
+    </div>
+
+    <!-- >>>>>>>>>>>>>>>>>>>>
+     Post Right Sidebar Area
+    <<<<<<<<<<<<<<<<<<<<< -->
+    <div class="post-sidebar-area right-sidebar mt-30 mb-30 box-shadow">
+        <!-- Sidebar Widget -->
+        <div class="single-sidebar-widget p-30">
+            <!-- Social Followers Info -->
+            <div class="social-followers-info">
+                <!-- Facebook -->
+                <a href="#" class="facebook-fans"><i class="fa fa-facebook"></i> 4,360 <span>Fans</span></a>
+                <!-- Twitter -->
+                <a href="#" class="twitter-followers"><i class="fa fa-twitter"></i> 3,280 <span>Followers</span></a>
+                <!-- YouTube -->
+                <a href="#" class="youtube-subscribers"><i class="fa fa-youtube"></i> 1250 <span>Subscribers</span></a>
+                <!-- Google -->
+                <a href="#" class="google-followers"><i class="fa fa-google-plus"></i> 4,230 <span>Followers</span></a>
+            </div>
+        </div>
+
+        <!-- Sidebar Widget -->
+        <!--<- include('./elements/sidebar-widget') %>-->
+    </div>
+</section>
+<!-- ##### Mag Posts Area End ##### -->
+
+<!-- ##### Footer Area Start ##### -->
+
+<!-- ##### All Javascript Script ##### -->
+<!-- All Plugins js -->
+<script src="/js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="/js/active.js"></script>

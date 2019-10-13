@@ -1,0 +1,37 @@
+<div class="post-details-content bg-white mb-30 p-30 box-shadow">
+    <div class="mb-30">
+        <img style="width:100%" src="<%- news.image %>" alt="">
+    </div>
+    <div class="blog-content">
+        <div class="post-meta">
+            <a href="#"><%- news.created_date.toDateString() %></a>
+            <a href="/category/<%-category.name%>"><%- category.name %></a>
+        </div>
+        <h4 class="post-title"><%- news.title %></h4>
+        <div class="post-meta-2">
+            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%- news.views %></a>
+            <% tags.forEach(tag => {%>
+                <a href="/tag/<%- tag.tagName%>" style="color: rgb(190, 74, 165)">#<%- tag.tagName%></a>
+            <%})%>
+
+            <% if(news.type === "premium"){%>
+                <a href="#" class="btn btn-danger" style="color: white"><i aria-hidden="true"></i> <%- news.type%></a>
+            <%}%>
+            
+        </div>
+
+        <%- news.content %>
+       
+
+        <!-- Post Author -->
+        <div class="post-author d-flex align-items-center">
+            <div class="post-author-thumb">
+                <img src="<%- author.avatar%>" alt="">
+            </div>
+            <div class="post-author-desc pl-4">
+                <a href="#" class="author-name"><%- author.pen_name %></a>
+                <p><%- author.description %></p>
+            </div>
+        </div>
+    </div>
+</div>

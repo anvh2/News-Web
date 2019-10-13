@@ -1,0 +1,43 @@
+<form method="POST" action=<%"/account/change/"+user.uid%>>
+    <table class="table table-borderless">
+        <tbody>    
+            <tr>
+                <th scope="row"><i class="fas fa-user"></i> Username</th>
+                <td>
+                    <div class="form-group">
+                        <input type="text" readonly class="form-control" id="username" name="username" placeholder="Username" value=<%-user.username%>>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><i class="fa fa-lock" aria-hidden="true"></i> Old Password</th>
+                <td>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="Old Password">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><i class="fa fa-lock" aria-hidden="true"></i> New Password</th>
+                <td>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="New Password">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><i class="fa fa-lock" aria-hidden="true"></i> Confirm Password</th>
+                <td>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="confirm" name="confirm" placeholder="Confirm">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" class="btn mag-btn mt-30">Submit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

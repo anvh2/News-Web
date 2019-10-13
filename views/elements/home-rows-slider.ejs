@@ -1,0 +1,24 @@
+<div class="section-heading">
+   <h5><%-title%></h5>
+</div>
+
+<div class="featured-video-posts">
+    <div class="row">
+        <div class="col-12 col-lg-7">
+            <!-- Single Featured Post -->
+            <%for(var i = 0; i < newsList.length; i++){%>
+                <%if((isAuthenticated && newsList[i].type === 'premium') || newsList[i].type === 'normal') {%>
+                    <%- include('./single-news-review', {news: newsList[i]}) %>
+                    <%break%>
+                <%}%>
+            <%}%>
+        </div>
+
+        <div class="col-12 col-lg-5">
+            <!-- Featured Video Posts Slide -->
+            <div class="featured-video-posts-slide owl-carousel">
+                <%- include('./rows-slider', {newsList: newsList}) %>
+            </div>
+        </div>
+    </div>
+</div>

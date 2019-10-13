@@ -1,0 +1,64 @@
+<form method="POST" action=<%"/account/edit/"+user.uid%>>
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <th scope="row"><i class="fas fa-user"></i> Name</th>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value=<%-user.name%>>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><i class="fas fa-map-marker-alt"></i> Address</th>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Address" value=<%-user.address%>>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><i class="fas fa-envelope-open-text"></i> Email</th>
+                <td>
+                    <div class="form-group">
+                        <input type="email" readonly class="form-control" id="email" name="email" placeholder="Email" value=<%-user.email%>>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><i class="fas fa-mobile-alt"></i> Phone</th>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value=<%-user.phone%>>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><i class="fas fa-birthday-cake"></i> Birthday</th>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="dob" name="dob" placeholder="Birthday" value=<%-dob%>>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><i class="fas fa-sign-in-alt"></i> Joined date</th>
+                <td>
+                    <div class="form-group">
+                        <input type="text" readonly class="form-control" id="joindate" name="joindate" placeholder="Joined date" value=<%-joindate%>>
+                    </div>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <button type="submit" class="btn mag-btn mt-30">Submit</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href=<%="/account/change/"+user.uid%> class="btn mag-btn">Change Pass</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

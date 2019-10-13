@@ -1,0 +1,15 @@
+<li class="single_comment_area">
+    <!-- Comment Content -->
+    <div class="comment-content d-flex">
+        <!-- Comment Author -->
+        <div class="comment-author">
+            <img src="/<%- comment.avatar %>" alt="author">
+        </div>
+        <!-- Comment Meta -->
+        <div class="comment-meta">
+            <a href="#" class="comment-date"><%- comment.created_date.toLocaleString() %></a>
+            <h6><%- comment.name %></h6>
+            <p><%- comment.content %></p>
+        </div>
+    </div>
+</li>

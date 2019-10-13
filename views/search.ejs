@@ -1,0 +1,73 @@
+<section class="breadcrumb-area bg-img bg-overlay" style="background-image: url('');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-content">
+                    <h2>Kết quả tìm kiếm</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ##### Archive Post Area Start ##### -->
+<div class="archive-post-area mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-8">
+                <div class="archive-posts-area bg-white p-30 mb-30 box-shadow">
+                    
+                       <div class="news-posts-area bg-white p-30 mb-30 box-shadow">
+                            <% newsList.forEach(news => { %> 
+                            
+                            <%- include('./elements/search-list-item', {news: news}) %>
+                            <% }) %>
+
+                        <!-- Pagination -->
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="ti-angle-right"></i></a></li>
+                            </ul>
+                        </nav>
+
+                    </div>  
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                <div class="sidebar-area bg-white mb-30 box-shadow">
+                    <!-- Sidebar Widget -->
+                    <div class="single-sidebar-widget p-30">
+                        <!-- Social Followers Info -->
+                        <div class="social-followers-info">
+                            <!-- Facebook -->
+                            <a href="#" class="facebook-fans"><i class="fa fa-facebook"></i> 4,360 <span>Fans</span></a>
+                            <!-- Twitter -->
+                            <a href="#" class="twitter-followers"><i class="fa fa-twitter"></i> 3,280 <span>Followers</span></a>
+                            <!-- YouTube -->
+                            <a href="#" class="youtube-subscribers"><i class="fa fa-youtube"></i> 1250 <span>Subscribers</span></a>
+                            <!-- Google -->
+                            <a href="#" class="google-followers"><i class="fa fa-google-plus"></i> 4,230 <span>Followers</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Widget -->
+                    <!-- Sidebar Widget -->
+                    <div class="single-sidebar-widget p-30">
+                        <!-- Section Title -->
+                        <!--<div class="section-heading">
+                            <h5>Categories</h5>
+                        </div>-->
+
+                        <!-- Catagory Widget -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Archive Post Area End ##### -->

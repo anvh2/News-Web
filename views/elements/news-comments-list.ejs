@@ -1,0 +1,11 @@
+<div class="comment_area clearfix bg-white mb-30 p-30 box-shadow">
+    <!-- Section Title -->
+    <div class="section-heading">
+        <h5>COMMENTS</h5>
+    </div>
+    <ol>
+        <% commentList.forEach(function(comment){%>
+            <%- include('./news-comments-list-item', {comment: comment }) %>
+        <% }) %>
+    </ol>
+</div>

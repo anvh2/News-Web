@@ -1,0 +1,74 @@
+<!-- ##### Breadcrumb Area Start ##### -->
+<section class="breadcrumb-area bg-img bg-overlay" style="background-image: url('<%- news.image %>');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-content">
+                    <h2><%- news.title %></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- ##### Post Details Area Start ##### -->
+<section class="post-details-area mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Post Details Content Area -->
+            <div class="col-12 col-xl-8">
+
+                <%- include('./elements/news-details',{news: news.newsContent, tags: news.listTag, category: category, author: author}) %>
+
+                <!-- Related Post Area -->
+                <!-- <- include('./elements/normal-slider') %> -->
+
+              
+                <div id="comment-list">
+                <!-- Comment Area Start -->
+                <div id="comment-list"></div>
+                <%- include('./elements/news-comments-list', {commentList: commentList}) %>
+                </div>
+
+                <!-- Post A Comment Area -->
+                <%- include('./elements/comments-form') %>
+            </div>
+
+            <!-- Sidebar Widget -->
+            <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                <div class="sidebar-area bg-white mb-30 box-shadow">
+                    <!-- Sidebar Widget -->
+                    <div class="single-sidebar-widget p-30">
+                        <!-- Social Followers Info -->
+                        <div class="social-followers-info">
+                            <!-- Facebook -->
+                            <a href="#" class="facebook-fans"><i class="fa fa-facebook"></i> 4,360 <span>Fans</span></a>
+                            <!-- Twitter -->
+                            <a href="#" class="twitter-followers"><i class="fa fa-twitter"></i> 3,280
+                                <span>Followers</span></a>
+                            <!-- YouTube -->
+                            <a href="#" class="youtube-subscribers"><i class="fa fa-youtube"></i> 1250
+                                <span>Subscribers</span></a>
+                            <!-- Google -->
+                            <a href="#" class="google-followers"><i class="fa fa-google-plus"></i> 4,230
+                                <span>Followers</span></a>
+                        </div>
+
+                    <%- include('./elements/sidebar-widget',{categories: lcCategories, title: "Danh mục", type: 2}) %>
+                    <div class="single-sidebar-widget p-30">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>Cùng chuyên mục</h5>
+                        </div>
+                        <% newsSameCat.forEach(news => { %> 
+                            <%- include('./elements/news-sidebar-widget-item',{news: news}) %>
+                        <%})%>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Post Details Area End ##### -->

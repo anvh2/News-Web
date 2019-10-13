@@ -1,0 +1,35 @@
+<div class="post-a-comment-area bg-white mb-30 p-30 box-shadow clearfix">
+    <!-- Section Title -->
+    <div class="section-heading">
+        <h5>Bình luận cho bài viết</h5>
+    </div>
+
+    <!-- Reply Form -->
+    <div class="contact-form-area">
+        <form action="/news/<%- news.nid%>/upload-comment" method="post" id="comment-form">
+            <div class="row">
+                <!-- <div class="col-12 col-lg-6">
+                    <input type="text" class="form-control" id="name" placeholder="Your Name*" required>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <input type="email" class="form-control" id="email" placeholder="Your Email*"
+                           required>
+                </div> -->
+                <% if(isAuthenticated === true) { %>
+                <div class="col-12">
+                    <textarea name="message" class="form-control" id="message" cols="30" rows="10"
+                                              placeholder="Message*" required></textarea>
+                </div>
+                <div class="col-12">
+                    <button class="btn mag-btn mt-30" type="submit">Bình luận</button>
+                </div>
+                <% }else{%>
+                    <div class="btn mag-btn mt-30">
+                        <a href="/login" style="color:white">Đăng nhập để bình luận!</a>
+                    </div>
+                <% } %>
+            </div>
+        </form>
+    </div>
+</div>
+

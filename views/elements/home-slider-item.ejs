@@ -1,0 +1,21 @@
+<%if((isAuthenticated && news.type === 'premium') || news.type === 'normal') {%>
+<div class="hero-blog-post bg-img bg-overlay" style="background-image: url('<%- news.image %>');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <!-- Post Contetnt -->
+                <div class="post-content text-center">
+                    <div class="post-meta" data-animation="fadeInUp" data-delay="100ms">
+                        <a href="#"><%-news.created_date.toDateString()%></a>
+                        <a href="/category/<%- news.category %>"><%- news.name %></a>
+                    </div>
+                    <a href="/news/<%- news.nid %>" class="post-title" data-animation="fadeInUp" data-delay="300ms">
+                        <%- news.title %></a>
+                    <a href="/news/<%- news.nid %>" style="font-size: 20px" class="post-title" data-animation="fadeInUp" data-delay="300ms">
+                        <%- news.abstract %></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%}%>

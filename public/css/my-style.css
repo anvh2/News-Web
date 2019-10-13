@@ -1,0 +1,49 @@
+.avatar {
+    max-height: 200px;
+    height: 100%;
+    width: auto;
+    max-width: 300px;
+}
+
+.news-review-image {
+    max-height: 400px;
+    max-width: 100%;
+}
+
+.company-description img {
+    max-width: 100%;
+    max-height: 300px !important;
+    width: 100%;
+}
+
+.applicant-table-img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.thumb-img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.job-icon {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.file-preview-image {
+    max-height: 200px !important;
+    width: auto;
+    max-width: 200px !important;
+}
+
+#logo {
+    height: auto;
+    max-width: 100%;
+    margin-top: -50px;
+}
+
+.news-img {
+    background-size: contain;
+    
+}

@@ -1,0 +1,15 @@
+<div class="single-sidebar-widget p-30">
+    <div class="section-heading">
+       <h6><%- title %></h6>
+    </div>
+    <% if (type === 1) {%>
+    <% newsList.forEach(news => { %>
+        <%-include('./news-sidebar-widget-item',{news:news})%>
+    <%})} %>
+    <% if (type === 2) {%>
+    <% categories.forEach(category => { %>
+    <ul class="catagory-widgets">
+    <%-include('./category-sidebar-widget-item',{category:category})%>
+    </ul>
+    <%})}%>
+</div>

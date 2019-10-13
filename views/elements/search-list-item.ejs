@@ -1,0 +1,24 @@
+<div class="single-catagory-post d-flex flex-wrap">
+    <!-- Thumbnail -->
+    <div class="post-thumbnail bg-img" style="background-image: url('<%- news.image%>');">
+    </div>
+
+    <!-- Post Contetnt -->
+    <div class="post-content">
+        <div class="post-meta">
+            <a href="#"><%-news.created_date.toDateString()%></a>
+            <a href="/category/<%-news.name%>"><%- news.name%></a>
+        </div>
+        <a href="/news/<%-news.nid%>" class="post-title"><%- news.title%></a>
+        <!-- Post Meta -->
+        <div class="post-meta-2">
+            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%- news.views %></a>
+            <a href="#"><i class="fa fa-comment" aria-hidden="true"></i> <%-news.total_cmt%></a>
+            <% if(news.type === "premium"){%>
+                <a href="#" class="btn btn-danger" style="color: white"><i aria-hidden="true"></i> <%- news.type%></a>
+            <%}%>
+
+        </div>
+        <p><%- news.abstract%></p>
+    </div>
+</div>

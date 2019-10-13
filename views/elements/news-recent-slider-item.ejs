@@ -1,0 +1,9 @@
+<%if((isAuthenticated && news.type === 'premium') || news.type === 'normal') {%>
+<div class="single-trending-post">
+    <img src="<%-news.image%>" alt="">
+    <div class="post-content">
+        <a href="#" class="post-cata"><%-news.name%></a>
+        <a href="/news/<%-news.nid%>" class="post-title"><%-news.title%></a>
+    </div>
+</div>
+<%}%>

@@ -1,0 +1,5 @@
+<div class="hero-area owl-carousel">
+    <% mostViewedInWeek.forEach(function(news){ %>
+    <%- include('./home-slider-item',{news:news}) %>
+    <% }) %>
+</div>

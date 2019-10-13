@@ -1,0 +1,114 @@
+<header class="header-area">
+    <!-- Navbar Area -->
+    <div class="mag-main-menu" id="sticker">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Menu -->
+            <nav class="classy-navbar justify-content-between" id="magNav">
+
+                <!-- Nav brand -->
+                <a href="/" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Nav Content -->
+                <div class="nav-content d-flex align-items-center">
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li class="active"><a href="/">Trang chủ</a></li>
+                                <li><a href="/search">Tìm kiếm</a>
+                                <li><a href="/category">Danh mục</a>
+                                <div class="megamenu">
+                                    <% { var counter = -1; %>
+                                    <% lcCategories.forEach(function(category) { %>
+                                    <% { counter++ %>
+                                    <% if (counter === 0) { %>
+                                    <ul class="single-mega cn-col-4">
+                                        <li><a href="/category/<%- category.name %>"><%- category.name %></a>
+                                        </li>
+                                        <% } else if (counter != 0 && counter % 5 == 0) { %>
+                                    </ul>
+                                    <ul class="single-mega cn-col-4">
+                                        <li><a href="/category/<%- category.name %>"><%- category.name %></a>
+                                        </li>
+                                        <% } else if (counter === 40 || counter === lcCategories.length -1) {%>
+                                        <li><a href="/category/<%- category.name %>"><%- category.name %></a>
+                                        </li>
+                                    </ul>
+                                    <% } else if (counter < 40) {%>
+                                <li><a href="/category/<%- category.name %>"><%- category.name %></a></li>
+                                <% }} %>
+                                <% })} %>
+                                </div>
+                                    </li>
+                                <li><a href="/tag">Từ khóa</a><div class="megamenu">
+                            <% { var counter = -1; %>
+                            <% lcTags.forEach(function(tag) { %>
+                            <% { counter++ %>
+                            <% if (counter === 0) { %>
+                            <ul class="single-mega cn-col-4">
+                                <li><a href="/tag/<%- tag.name %>"><%- tag.name %></a>
+                                </li>
+                                <% } else if (counter != 0 && counter % 5 == 0) { %>
+                            </ul>
+                            <ul class="single-mega cn-col-4">
+                                <li><a href="/tag/<%- tag.name %>"><%- tag.name %></a>
+                                </li>
+                                <% } else if (counter === 40 || counter === lcTags.length -1) {%>
+                                <li><a href="/tag/<%- tag.name %>"><%- tag.name %></a>
+                                </li>
+                            </ul>
+                            <% } else if (counter < 40) {%>
+                            <li><a href="/tag/<%- tag.name %>"><%- tag.name %></a></li>
+                            <% }} %>
+                            <% })} %>
+                            </div></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+
+                <div class="top-meta-data d-flex align-items-center">
+                    <!-- Top Search Area -->
+                    <div class="top-search-area">
+                        <form action="/search" method="post">
+                            <input type="search" name="search" id="topSearch"
+                                   placeholder="Search and hit enter...">
+                            <button type="submit" class="btn"><i class="fas fa-search" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <% if (!isAuthenticated) { %>
+                    <!-- Login -->
+                    <a href="/login" class="login-btn"><i class="fas fa-user"></i>
+                        <span>Login</span></a>
+                    <!-- Register -->
+                    <a href="/register" class="submit-video">
+                        <span class="video-text">Sign up<i class="fas fa-sign-in-alt"></i></span></a>
+                    <% }  else { %>
+                    <!-- Login -->
+                    <a href="/dashboard" class="login-btn"><i class="fas fa-user" aria-hidden="true"></i>
+                        <span>Dashboard</span></a>
+                    <!-- Register -->
+
+                    <a class="submit-video" href="javascript: $('#frmLogout').submit();"><span><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="video-text">Logout</span></a>
+                    <% } %>
+                </div>
+        </div>
+        </nav>
+    </div>
+    </div>
+</header>

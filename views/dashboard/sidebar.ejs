@@ -1,0 +1,111 @@
+<div class="sidebar" data-color="rose" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+    <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+            Hello
+        </a>
+    </div>
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <% if (dashboard === "main") { %>
+            <li class="nav-item active">
+                <% } else { %>
+            <li class="nav-item">
+                <%} %>
+                <a class="nav-link" href="/dashboard">
+                    <i class="material-icons">dashboard</i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <% if (dashboard === "my-account") { %>
+            <li class="nav-item active">
+                <% } else { %>
+            <li class="nav-item">
+                <%} %>
+                <a class="nav-link" href="/dashboard/my-account">
+                    <i class="material-icons">person</i>
+                    <p>My Account</p>
+                </a>
+            </li>
+            <% if (user.role === "subscriber") { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard/subscriber/subscribe">
+                    <i class="material-icons">unarchive</i>
+                    <p>Gia hạn tài khoản</p>
+                </a>
+            </li>
+            <% }%>
+            <% if (user.role === "writer") { %>
+            <% if (dashboard === "writer/my-news") { %>
+            <li class="nav-item active">
+                <% } else { %>
+            <li class="nav-item">
+                <%} %>
+                <a class="nav-link" href="/dashboard/writer/my-news">
+                    <i class="material-icons">location_ons</i>
+                    <p>My News</p>
+                </a>
+            </li>
+            <% } %>
+            <% if (user.role === "editor") { %>
+            <% if (dashboard === "editor/news-manager") { %>
+            <li class="nav-item active">
+                <% } else { %>
+            <li class="nav-item">
+                <%} %>
+                <a class="nav-link" href="/dashboard/editor/news-manager">
+                    <i class="material-icons">location_ons</i>
+                    <p>News manager</p>
+                </a>
+            </li>
+            <% } %>
+            <% if (user.role === "admin") { %>
+            <% if (dashboard === "admin/account-manager") { %>
+            <li class="nav-item active">
+                <% } else { %>
+            <li class="nav-item">
+                <%} %>
+                <a class="nav-link" href="/dashboard/admin/account-manager">
+                    <i class="material-icons">bubble_chart</i>
+                    <p>Account Manager</p>
+                </a>
+            </li>
+            <% if (dashboard === "admin/news-manager") { %>
+            <li class="nav-item active">
+                <% } else { %>
+            <li class="nav-item">
+                <%} %>
+                <a class="nav-link" href="/dashboard/admin/news-manager">
+                    <i class="material-icons">content_paste</i>
+                    <p>News manager</p>
+                </a>
+            </li>
+            <% if (dashboard === "admin/category-manager") { %>
+            <li class="nav-item active">
+                <% } else { %>
+            <li class="nav-item">
+                <%} %>
+                <a class="nav-link" href="/dashboard/admin/category-manager">
+                    <i class="material-icons">library_books</i>
+                    <p>Category manager</p>
+                </a>
+            </li>
+            <% if (dashboard === "admin/tag-manager") { %>
+            <li class="nav-item active">
+                <% } else { %>
+            <li class="nav-item">
+                <%} %>
+                <a class="nav-link" href="/dashboard/admin/tag-manager">
+                    <i class="material-icons">library_books</i>
+                    <p>Category manager</p>
+                </a>
+            </li>
+
+            <% } %>
+        </ul>
+    </div>
+</div>

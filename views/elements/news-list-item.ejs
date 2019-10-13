@@ -1,0 +1,26 @@
+<div class="single-catagory-post d-flex flex-wrap">
+    <!-- Thumbnail -->
+    <div class="post-thumbnail bg-img news-img" style="background-image: url('<%- news.image%>');">
+    </div>
+    <!-- Post Contetnt -->
+    <div class="post-content">
+        <div class="post-meta">
+            <a href="#"><%-news.created_date.toLocaleString()%></a>
+            <a href="/category/<%-news.categoryName%>"><%- news.categoryName%></a>
+        </div>
+        <a href="/news/<%-news.nid%>" class="post-title"><%- news.title%></a>
+        <!-- Post Meta -->
+        <div class="post-meta-2">
+            <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <%- news.views %></a>
+            <a href="#"><i class="fa fa-hashtag" aria-hidden="true"></i> 234</a>
+            <% if(news.type === "premium"){%>
+                <a href="#" class="btn btn-danger" style="color: white"><i aria-hidden="true"></i> <%- news.type%></a>
+            <%}%>
+            <p><%- news.abstract%></p>
+            <% tags.forEach(tag => {%>
+                <a href="/tag/<%- tag.tagName%>" style="color: rgb(190, 74, 165)">#<%- tag.tagName%></a>
+            <%})%>
+        </div>
+        
+    </div>
+</div>
